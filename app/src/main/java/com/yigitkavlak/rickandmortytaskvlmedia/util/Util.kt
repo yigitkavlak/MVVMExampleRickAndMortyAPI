@@ -10,28 +10,26 @@ import com.yigitkavlak.rickandmortytaskvlmedia.R
 //Extension
 
 
+fun ImageView.downloadFromAPI(url: String?, progressDrawable: CircularProgressDrawable) {
+
+    val options = RequestOptions()
+        .placeholder(progressDrawable)
+        .error(R.mipmap.ic_launcher_round)
+
+    Glide.with(context)
+        .setDefaultRequestOptions(options)
+        .load(url)
+        .into(this)
 
 
-    fun ImageView.downloadFromAPI(url: String?, progressDrawable: CircularProgressDrawable){
+}
 
-        val options = RequestOptions()
-            .placeholder(progressDrawable)
-            .error(R.mipmap.ic_launcher_round)
+fun placeHolderProgressBar(context: Context): CircularProgressDrawable {
 
-        Glide.with(context)
-            .setDefaultRequestOptions(options)
-            .load(url)
-            .into(this)
+    return CircularProgressDrawable(context).apply {
 
-
-
-    fun placeHolderProgressBar(context: Context): CircularProgressDrawable{
-
-        return CircularProgressDrawable(context).apply {
-
-            strokeWidth = 8f
-            centerRadius = 40f
-            start()
-        }
+        strokeWidth = 8f
+        centerRadius = 40f
+        start()
     }
 }

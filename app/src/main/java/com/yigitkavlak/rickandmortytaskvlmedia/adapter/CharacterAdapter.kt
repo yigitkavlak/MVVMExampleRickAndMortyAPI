@@ -14,10 +14,12 @@ import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.item_character.view.*
 import com.yigitkavlak.rickandmortytaskvlmedia.model.Result
 import com.yigitkavlak.rickandmortytaskvlmedia.util.downloadFromAPI
+import com.yigitkavlak.rickandmortytaskvlmedia.util.placeHolderProgressBar
 
 class CharacterAdapter( val characterList : ArrayList<Result>) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
     class CharacterViewHolder(var view:View) : RecyclerView.ViewHolder(view){
+
 
     }
 
@@ -35,9 +37,11 @@ class CharacterAdapter( val characterList : ArrayList<Result>) : RecyclerView.Ad
         holder.view.setOnClickListener {
             val action = FeedFragmentDirections.actionFeedFragmentToDetailFragment()
             Navigation.findNavController(it).navigate(action)
+
         }
 
-        holder.view.characterImageView.downloadFromAPI(characterList[position].image,progressDrawable = CircularProgressDrawable(holder.view.context))
+        holder.view.characterImageView.downloadFromAPI(characterList[position].image,
+            placeHolderProgressBar(holder.view.context))
 
 
     }
