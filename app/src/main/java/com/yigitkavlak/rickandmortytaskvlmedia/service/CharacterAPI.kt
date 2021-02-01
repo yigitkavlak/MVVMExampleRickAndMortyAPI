@@ -1,7 +1,7 @@
 package com.yigitkavlak.rickandmortytaskvlmedia.service
 
 
-import io.reactivex.Single
+
 import retrofit2.http.GET
 import retrofit2.Call
 
@@ -12,12 +12,9 @@ interface CharacterAPI {
 
     //https://rickandmortyapi.com/api/character/
     //Base URL -->> https://rickandmortyapi.com/api/
-    //Extention -->character/
-    //https://raw.githubusercontent.com/atilsamancioglu/IA19-DataSetCountries/master/countrydataset.json
+    //Extention -->character
 
 
-    @GET("character/")
-    fun getCharacters(): Single<List<Character>>
 
     @GET("character/")
 

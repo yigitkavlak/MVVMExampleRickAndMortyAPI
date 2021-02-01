@@ -10,7 +10,6 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.yigitkavlak.rickandmortytaskvlmedia.R
 import com.yigitkavlak.rickandmortytaskvlmedia.model.Character
 import com.yigitkavlak.rickandmortytaskvlmedia.view.FeedFragmentDirections
-import kotlinx.android.synthetic.main.fragment_detail.view.*
 import kotlinx.android.synthetic.main.item_character.view.*
 import com.yigitkavlak.rickandmortytaskvlmedia.model.Result
 import com.yigitkavlak.rickandmortytaskvlmedia.util.downloadFromAPI
@@ -34,11 +33,7 @@ class CharacterAdapter( val characterList : ArrayList<Result>) : RecyclerView.Ad
        holder.view.characterStatus.text = characterList[position].status
 
 
-        holder.view.setOnClickListener {
-            val action = FeedFragmentDirections.actionFeedFragmentToDetailFragment()
-            Navigation.findNavController(it).navigate(action)
 
-        }
 
         holder.view.characterImageView.downloadFromAPI(characterList[position].image,
             placeHolderProgressBar(holder.view.context))

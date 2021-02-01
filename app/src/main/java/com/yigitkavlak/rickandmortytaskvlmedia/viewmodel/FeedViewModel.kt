@@ -6,13 +6,8 @@ import androidx.lifecycle.ViewModel
 import com.yigitkavlak.rickandmortytaskvlmedia.model.Character
 import com.yigitkavlak.rickandmortytaskvlmedia.model.Result
 import com.yigitkavlak.rickandmortytaskvlmedia.service.CharacterAPI
-import com.yigitkavlak.rickandmortytaskvlmedia.service.CharacterAPIService
 import com.yigitkavlak.rickandmortytaskvlmedia.service.RetrofitClient
-import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Response
 
@@ -20,8 +15,6 @@ class FeedViewModel : ViewModel() {
     //.subscribeOn(Schedulers.newThread()) //başka thread
     //                .observeOn(AndroidSchedulers.mainThread()) //mainthread
 
-    private val characterAPIService = CharacterAPIService()
-    private val disposable = CompositeDisposable() //Fragmentler kapandıgında call'lardan kurtulmak ve hafızada yer kaplamamasını sağlamak için disposable kullanıyoruz. Kullan at gibi bir işlev sağlıyor.
 
 
     val characters = MutableLiveData<List<Result>>()
